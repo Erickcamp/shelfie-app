@@ -10,7 +10,15 @@ class Dashboard extends Component {
     return (
       <div>
         <div>Dashboard</div>
-        <Product />
+        {this.props.inventoryList.map((product) => {
+        return (
+        <Product 
+        key={product.id}
+        product={product} 
+         />
+        )
+        })}
+            
       </div>
     );
   }
