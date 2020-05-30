@@ -30,10 +30,6 @@ class Form extends Component {
       });
   };
 
-  updateInventory = () => {
-      this.createInventory()
-      this.resetState()
-  }
 
   
 
@@ -65,7 +61,7 @@ class Form extends Component {
           onChange={this.handleInput}
         />
         <button onClick={this.resetState}>Cancel</button>
-        <button onClick={() => this.updateInventory()}>Add to Inventory</button>
+        <button onClick={() => this.createInventory()}>Add to Inventory</button>
       </div>
     );
   }
