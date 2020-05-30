@@ -37,6 +37,7 @@ class App extends Component {
         <Header />
         <Dashboard 
         inventoryList={this.state.inventory} 
+        getInventory={this.getInventory}
         />
         <Form 
           getInventory={this.getInventory}

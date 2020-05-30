@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import Product from "./Product";
+import axios from 'axios'
 
 class Dashboard extends Component {
   constructor() {
     super();
     this.state = {};
+  }
+
+  deleteProduct= (id) => {
+    axios
+    .delete(`/api/inventory/${id}`)
+    .then(() => {
+        this.props.getInventory()
+    })
+
   }
 
   render() {
@@ -17,6 +27,7 @@ class Dashboard extends Component {
         key={product.id}
         product={product} 
         getInventory={this.getInventory}
+        deleteProduct={this.deleteProduct}
          />
         )
         })}

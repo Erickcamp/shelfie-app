@@ -19,5 +19,14 @@ create: (req, res) => {
     })
 },
 update: (req, res) => {},
-delete: (req, res) => {}
+delete: (req, res) => {
+    const db = req.app.get('db')
+    const {id} = req.params
+
+    db.delete_inventory(id)
+    .then(() => res.sendStatus(200))
+    .catch((err) =>{
+        res.status(500).send(err)
+    })
+}
 }
