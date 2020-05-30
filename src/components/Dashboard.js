@@ -6,6 +6,7 @@ class Dashboard extends Component {
     super();
     this.state = {};
   }
+
   render() {
     return (
       <div>
@@ -15,6 +16,7 @@ class Dashboard extends Component {
         <Product 
         key={product.id}
         product={product} 
+        getInventory={this.getInventory}
          />
         )
         })}

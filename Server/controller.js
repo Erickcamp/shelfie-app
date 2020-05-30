@@ -1,7 +1,23 @@
-require ('dotenv').config()
-const express = require('express')
-const massive = require('massive')
+module.exports = {
+get: (req, res) => {
+    const db = req.app.get('db')
 
-const app = express()
+    db.get_inventory()
+    .then((inventory) => res.status(200).send(inventory))
+    .catch((err) => {
+        res.status(500).send(err)
+    })
+},
+create: (req, res) => {
+    const db = req.app.get('db')
+    const {name, price, imgurl} = req.body
 
-cons
+    db.create_inventory([name, price, imgurl])
+    .then(() => res.sendStatus(200))
+    .catch((err) => {
+        res.status(500).send(err)
+    })
+},
+update: (req, res) => {},
+delete: (req, res) => {}
+}
